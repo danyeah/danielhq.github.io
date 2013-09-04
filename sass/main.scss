@@ -1,0 +1,91 @@
+/*  ==========================================================================
+	Imports
+	========================================================================== */
+
+@import "partials/normalize";
+@import "partials/base";
+@import "partials/typography";
+@import "partials/grids";
+@import "partials/helpers";
+
+ @import "compass/utilities/sprites";
+
+
+ /*  ==========================================================================
+	Variables (http://sachagreif.com/sass-color-variables/)
+	========================================================================== */
+
+$black: #000;
+$white: #fff;
+$blue: #004358;
+$beige: #fbe1b9;
+$green: #1f8a70;
+
+$color-primary: $green;
+$color-text:$white;
+$color-heading: $beige;
+$color-link: $blue;
+
+
+/*  ==========================================================================
+	Mixin
+	========================================================================== */
+
+
+/*  ==========================================================================
+	My CSS
+	========================================================================== */
+
+body {
+	margin: 0;
+	background: $color-primary url("../images/header.png") top left repeat-x;
+	color:$color-text;
+}
+h1 {
+	@extend .gamma;
+	color: $color-heading;
+}
+h2 {
+	@extend .delta;
+}
+a {
+	color: $color-heading;
+	text-decoration:none;
+}
+.header-site {
+	text-align: center;
+	margin: 0 auto;
+}
+.avatar {
+	margin-bottom: 26px;
+}
+.header-subtitle {
+	@include adjust-font-size-to(18px);
+	font-family:$font-heading-italic;
+	color: $color-text;
+}
+/* Social
+* Usage:
+*	.social-list > .social-list__item > .social-list__link
+* */
+@import "social/*.png";
+@include all-social-sprites;
+.social-list {
+	height: 26px;
+}
+.social-list__item {
+	display: inline-block;
+}
+.social-list__link {
+	display: block;
+	height: 26px;
+	width: 26px;
+}
+/*  ==========================================================================
+	Print style
+	========================================================================== */
+
+@media print {
+	@import "print";
+}
+

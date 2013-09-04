@@ -1,0 +1,73 @@
+@import "compass/typography";
+@font-face {
+	font-family: 'aleoregular';
+	src: url('../fonts/aleo-regular-webfont.eot');
+	src: url('../fonts/aleo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/aleo-regular-webfont.woff') format('woff'),
+		 url('../fonts/aleo-regular-webfont.ttf') format('truetype'),
+		 url('../fonts/aleo-regular-webfont.svg#aleoregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'aleolightitalic';
+	src: url('../fonts/aleo-lightitalic-webfont.eot');
+	src: url('../fonts/aleo-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/aleo-lightitalic-webfont.woff') format('woff'),
+		 url('../fonts/aleo-lightitalic-webfont.ttf') format('truetype'),
+		 url('../fonts/aleo-lightitalic-webfont.svg#aleolightitalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/*  ==========================================================================
+	Fonts
+	========================================================================== */
+
+$font-heading: 'aleoregular';
+$font-heading-italic: 'aleolightitalic';
+$font-copy: 'PT Sans';
+
+
+/*  ==========================================================================
+	Type Sizes
+	========================================================================== */
+
+$base-font-size: 18px;
+$base-line-height: 26px;
+$relative-font-sizing: true;
+@include establish-baseline($base-font-size);
+
+// $Type scale  http://modularscale.com/scale/?px1=18&px2=&ra1=1.5&ra2=0
+
+$tera: 461.322px; // 461.322 = 307.548 × 1.5
+$giga: 307.548px; // 307.548 = 205.032 × 1.5
+$mega: 205.032px; //  205.032 = 136.688 × 1.5
+$alpha: 136.688px; // 136.388 = 91.125 × 91.125
+$beta: 91.125px; // 91.125 = 60.75 × 2.6667
+$gamma: 60.75px; // 60.75 = 40.75 × 1.5
+$delta: 40.5px; // 40.5 = 27 × 1.5
+$epsilon: 27px; // 21 = 18 × 1.5
+$zeta: 18px; // 18 = 18 × 1
+
+body {
+	font-family: $font-copy;
+}
+h1, h2, h3 {
+	font-family: $font-heading;
+}
+h1, .gamma {
+	@include adjust-font-size-to($gamma);
+	//margin: 0 0 rhythm(1, $gamma) 0;
+}
+h2, .delta {
+	@include adjust-font-size-to($delta);
+	//margin: 0 0 rhythm(1, $delta) 0;
+}
+h3, .epsilon {
+	@include adjust-font-size-to($epsilon);
+	//margin: 0 0 rhythm(1, $epsilon) 0;
+}
+p {
+	@include adjust-font-size-to($zeta);
+}
+

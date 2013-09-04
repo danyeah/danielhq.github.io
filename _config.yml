@@ -3,11 +3,13 @@
 # ----------------------- #
 
 url: http://danielhq.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: Daniel Duches
+subtitle: Hi! My name is Daniel and i'm a Front-end Developer and Interface Designer.
+author: Daniel Duches
 simple_search: http://google.com/search
-description:
+description: Daniel Duches Front end Developer and Interface Designer.
+
+
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -63,13 +65,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: danielhq
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: ildaniel8
 twitter_tweet_button: true
 
 # Google +1
@@ -78,7 +80,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
+googleplus_user: https://plus.google.com/101351200423097607707
 googleplus_hidden: false
 
 # Pinboard
@@ -94,7 +96,7 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-26396989-1
 
 # Facebook Like
 facebook_like: false

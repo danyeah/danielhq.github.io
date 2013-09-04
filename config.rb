@@ -15,5 +15,11 @@ sass_dir = "sass"
 images_dir = "source/images"
 fonts_dir = "source/fonts"
 
+
+output_style = :expanded
+
+# Remove SASS/Compass relative comments.
 line_comments = false
-output_style = :compressed
+
+# Chrome needs a precision of 7 to round properly
+Sass::Script::Number.precision = 7
