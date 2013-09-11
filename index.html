@@ -46,41 +46,38 @@
 </head>
 
 <body   >
-  <header class="header-site" role="banner" >  <h1 class="avatar"><a href="/"><img src="/images/daniel.png" alt=""></a></h1>
+  <header class="header-site clearfix" role="banner" >  <h1 class="avatar"><a href="/"><img src="/images/daniel.png" alt=""></a></h1>
   
     <h2 class="header-subtitle">Hi! My name is Daniel and i’m a Front-end Developer & Interface Designer.<br/>
-Raised and born in Italy, currently working for <a href="http://www.evoluzionetelematica.it" title="Evoluzione Telematica">Evoluzione Telematica</a>
+Raised and born in Italy, currently working for <a href="http://www.evoluzionetelematica.it" title="Evoluzione Telematica" target="_blank">Evoluzione Telematica</a>
 </h2>
   
   <ul class="social-list">
-	<li class="social-list__item"><a href="https://twitter.com/ildaniel8" title="Twitter" class="social-list__link social-twitter ir">Twitter</a></li>
-	<li class="social-list__item "><a href="https://plus.google.com/101351200423097607707"  title="Google Plus" class="social-list__link social-plus ir">Google plus</a></li>
-	<li class="social-list__item "><a href="" class="social-list__link social-feed ir">Feed</a></li>
-	<li class="social-list__item "><a href="http://www.linkedin.com/in/danielhq" class="social-list__link social-linkedin social-linkedin ir">linkedIn</a></li>
-	<li class="social-list__item "><a href="https://github.com/danielhq" class="social-list__link social-github ir">Github</a></li>
+	<li class="social-list__item social-twitter"><a href="https://twitter.com/ildaniel8" title="Twitter" class="social-list__link" target="_blank">Twitter</a></li>
+	<li class="social-list__item social-plus "><a href="https://plus.google.com/101351200423097607707"  title="Google Plus" class="social-list__link" target="_blank">Google plus</a></li>
+	<li class="social-list__item social-feed"><a href="/atom.xml" class="social-list__link social-feed" target="_blank">Feed</a></li>
+	<li class="social-list__item social-linkedin"><a href="http://www.linkedin.com/in/danielhq" class="social-list__link social-linkedin" target="_blank">linkedIn</a></li>
+	<li class="social-list__item social-github"><a href="https://github.com/danielhq" class="social-list__link" target="_blank">Github</a></li>
 </ul>
-
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
+  <nav role="navigation" class="main-nav clearfix">
+<!-- <form action="http://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:danielhq.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
-</form>
+</form> -->
   
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+<ul class="site-menu">
+	<li class="site-menu__item"><a href="/" class="site-menu__link">Home</a></li>
+	<li class="site-menu__item"><a href="/" class="site-menu__link">About</a></li>
+	<li class="site-menu__item"><a href="/" class="site-menu__link">Lab</a></li>
+	<li class="site-menu__item"><a href="/" class="site-menu__link">Contacts</a></li>
 </ul>
 
 </nav>
-  <div id="main">
+  <section id="main" class="main-content clearfix">
     <div id="content">
       <div class="blog-index">
   
@@ -146,7 +143,7 @@ Raised and born in Italy, currently working for <a href="http://www.evoluzionete
 </aside>
 
     </div>
-  </div>
+  </section>
   <footer role="contentinfo"><p>
   Copyright &copy; 2013 - Daniel Duches -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>

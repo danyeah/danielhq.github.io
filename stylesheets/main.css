@@ -1,4 +1,18 @@
 /*  ==========================================================================
+	Conventions
+	========================================================================== */
+/*
+*	Indentation: Hard Tab (4 spaces )
+*	BEM Naming conventions:
+*	.block-name
+*	.block-name__element
+*	.block-name__element__modifier
+*	Sass Conventions:
+*	Maximum 3 Level of nesting
+*	CSS Conventions:
+*	Only use margin-bottom across the whole site
+*/
+/*  ==========================================================================
 	Imports
 	========================================================================== */
 /* normalize.css v2.1.2 | MIT License | git.io/normalize */
@@ -583,15 +597,16 @@ p {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .site-menu:before,
+.clearfix:after,
+.site-menu:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */
 }
 
-.clearfix:after {
+.clearfix:after, .site-menu:after {
   clear: both;
 }
 
@@ -599,7 +614,7 @@ p {
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.clearfix {
+.clearfix, .site-menu {
   *zoom: 1;
 }
 
@@ -612,9 +627,14 @@ p {
 /*  ==========================================================================
 	My CSS
 	========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
 body {
+  padding: 0;
   margin: 0;
-  background: #1f8a70 url("../images/header.png") top left repeat-x;
+  background: #1f8a70;
   color: white;
 }
 
@@ -628,12 +648,29 @@ a {
 }
 
 .header-site {
+  display: block;
+  float: left;
+  margin-left: 16.8212891%;
+  margin-right: -100%;
+  width: 49.4873047%;
+  display: block;
+  float: left;
+  margin-left: 16.8728299%;
+  margin-right: -100%;
+  width: 66.1892361%;
+  clear: both;
+  display: block;
+  float: left;
+  margin-left: 0;
+  width: 100%;
+  padding-top: 52px;
+  clear: both;
+  background: #1f8a70 url("../images/header.png") top left repeat-x;
   text-align: center;
-  margin: 0 auto;
 }
 
 .avatar {
-  margin-bottom: 26px;
+  margin: 0 0 26px 0;
 }
 
 .header-subtitle {
@@ -643,12 +680,13 @@ a {
   color: white;
 }
 
-/* Social
+/*
+* Horizontal list
 * Usage:
-*	.social-list > .social-list__item > .social-list__link
+*	.ist-horizontal > .ist-horizontal__item > .ist-horizontal__link
 * */
 .social-sprite, .social-feed, .social-github, .social-linkedin, .social-plus, .social-twitter {
-  background: url('/images/social-s6063fe1b2f.png') no-repeat;
+  background: url('/images/social-s9388d00877.png') no-repeat;
 }
 
 .social-feed {
@@ -671,18 +709,120 @@ a {
   background-position: 0 -104px;
 }
 
-.social-list {
-  height: 26px;
-}
-
-.social-list__item {
+.list-horizontal .list-horizontal__item, .social-list .list-horizontal__item, .site-menu .list-horizontal__item, .social-list .social-list__item, .site-menu .site-menu__item {
   display: inline-block;
+  list-style: none;
+}
+.list-horizontal .list-horizontal__link, .social-list .list-horizontal__link, .site-menu .list-horizontal__link, .social-list .social-list__link, .site-menu .site-menu__link {
+  display: block;
 }
 
-.social-list__link {
+/*
+* Social list extends .horizontal-list
+* Usage:
+*	.social-list > .social-list__item > .social-list__link
+* */
+.social-list {
+  clear: both;
   display: block;
+  float: left;
+  margin-left: 0;
+  width: 100%;
+  display: block;
+  float: left;
+  margin-left: 16.8728299%;
+  margin-right: -100%;
+  width: 66.1892361%;
+  display: block;
+  float: left;
+  margin-left: 16.8212891%;
+  margin-right: -100%;
+  width: 49.4873047%;
+  text-align: center;
+}
+.social-list .social-list__item {
+  position: relative;
   height: 26px;
   width: 26px;
+  transition: all .4s ease-in;
+  text-indent: -9999em;
+}
+.social-list .social-list__item:hover {
+  top: -10px;
+}
+.social-list .social-list__link {
+  height: 100%;
+  width: 100%;
+}
+
+/*
+* Site Menu extends .horizontal-list
+* Usage:
+* ul.site-menu > .site-menu__item > .site-menu__link
+* */
+@media only screen and (max-width: 767px) {
+  .main-nav {
+    position: absolute;
+    top: 20px;
+    right: 220px;
+  }
+  .main-nav:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1em;
+    height: 0.15em;
+    background: black;
+    box-shadow: 0 0.25em 0 0 black,  0 0.5em 0 0 black;
+  }
+}
+.main-nav {
+  display: block;
+  float: left;
+  margin-left: 16.8728299%;
+  margin-right: -100%;
+  width: 66.1892361%;
+  display: block;
+  float: left;
+  margin-left: 25.2319336%;
+  margin-right: -100%;
+  width: 49.4873047%;
+  clear: both;
+}
+
+.site-menu {
+  clear: both;
+  position: relative;
+  font-family: "aleoregular";
+  text-align: center;
+}
+.site-menu .site-menu__item {
+  margin-right: 20px;
+}
+.site-menu .site-menu__link {
+  font-size: 1.5em;
+  line-height: 1.9259259em;
+  line-height: 2.8888889em;
+  color: white;
+}
+.site-menu:before {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 100%;
+  background: #17715b;
+}
+.site-menu:after {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: #17715b;
+}
+
+.main-content {
+  clear: both;
 }
 
 /*  ==========================================================================
