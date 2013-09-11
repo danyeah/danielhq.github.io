@@ -1,4 +1,22 @@
 /*  ==========================================================================
+	Conventions
+	========================================================================== */
+/*
+*	Indentation: Hard Tab (4 spaces )
+*	BEM Naming conventions:
+*	.block-name
+*	.block-name__element
+*	.block-name__element__modifier
+*	Sass Conventions:
+*	Maximum 3 Level of nesting
+*	CSS Conventions:
+*	Only use margin-bottom across the whole site
+*/
+
+
+
+
+/*  ==========================================================================
 	Imports
 	========================================================================== */
 
@@ -7,8 +25,8 @@
 @import "partials/typography";
 @import "partials/grids";
 @import "partials/helpers";
-
- @import "compass/utilities/sprites";
+@import "vendor/gridset.scss";
+@import "compass/utilities/sprites";
 
 
  /*  ==========================================================================
@@ -35,10 +53,13 @@ $color-link: $blue;
 /*  ==========================================================================
 	My CSS
 	========================================================================== */
-
+* {
+	box-sizing:border-box;
+}
 body {
+	padding: 0;
 	margin: 0;
-	background: $color-primary url("../images/header.png") top left repeat-x;
+	background: $color-primary;
 	color:$color-text;
 }
 h1 {
@@ -53,33 +74,133 @@ a {
 	text-decoration:none;
 }
 .header-site {
+	@include gs-span(d,3, 8 );
+	@include gs-span(t,2, 5 );
+	@include gs-span(m, all );
+	padding-top:52px;
+	clear:both;
+	background: $color-primary url("../images/header.png") top left repeat-x;
 	text-align: center;
-	margin: 0 auto;
 }
 .avatar {
-	margin-bottom: 26px;
+	margin: 0 0 26px 0;
 }
 .header-subtitle {
 	@include adjust-font-size-to(18px);
 	font-family:$font-heading-italic;
 	color: $color-text;
 }
-/* Social
+/*
+* Horizontal list
 * Usage:
-*	.social-list > .social-list__item > .social-list__link
+*	.ist-horizontal > .ist-horizontal__item > .ist-horizontal__link
 * */
 @import "social/*.png";
 @include all-social-sprites;
+
+.list-horizontal {
+	.list-horizontal__item {
+		display: inline-block;
+		list-style:none;
+	}
+	.list-horizontal__link {
+		display:block;
+	}
+}
+
+/*
+* Social list extends .horizontal-list
+* Usage:
+*	.social-list > .social-list__item > .social-list__link
+* */
 .social-list {
-	height: 26px;
+	@extend .list-horizontal;
+	@include gs-span(m, all );
+	@include gs-span(t,2, 5 );
+	@include gs-span(d,3, 8 );
+	text-align: center;
+	.social-list__item {
+		@extend .list-horizontal__item;
+		position: relative;
+		height: 26px;
+		width: 26px;
+		transition:all .4s ease-in;
+		text-indent:-9999em;
+		&:hover {
+			top:-10px;
+		}
+	}
+	.social-list__link {
+		@extend .list-horizontal__link;
+		height: 100%;
+		width: 100%;
+	}
 }
-.social-list__item {
-	display: inline-block;
+
+
+/*
+* Site Menu extends .horizontal-list
+* Usage:
+* ul.site-menu > .site-menu__item > .site-menu__link
+* */
+@include gs-media(m) {
+	.main-nav {
+		position: absolute;
+		top: 20px;
+		right: 220px;
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0.25em;
+			width: 1em;
+			height: 0.15em;
+			background: black;
+			box-shadow:  0 0.25em 0 0 black,  0 0.5em 0 0 black;
+		}
+	}
 }
-.social-list__link {
-	display: block;
-	height: 26px;
-	width: 26px;
+
+.main-nav {
+	@include gs-span(t,2, 5 );
+	@include gs-span(d,4, 9 );
+	clear:both;
+}
+.site-menu {
+	@extend .list-horizontal;
+	@extend .clearfix;
+	clear: both;
+	position: relative;
+	font-family:$font-heading;
+	text-align: center;
+	.site-menu__item {
+		@extend .list-horizontal__item;
+		margin-right:20px;
+	}
+	.site-menu__link {
+		@extend .list-horizontal__link;
+		@include adjust-font-size-to($epsilon);
+		line-height: rhythm(3, $epsilon);
+		color: $color-text;
+	}
+	&:before {
+		position: absolute;
+		top: 0;
+		height: 1px;
+		width: 100%;
+		background:#17715b;
+	}
+	&:after {
+		position: absolute;
+		bottom:0;
+		height: 1px;
+		width: 100%;
+		background: #17715b;
+	}
+}
+
+.main-content {
+	clear: both;
 }
 /*  ==========================================================================
 	Print style
